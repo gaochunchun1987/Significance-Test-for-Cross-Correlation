@@ -24,6 +24,18 @@ function varargout=montecarloexpcorr(nts,confid,nexp,ntest,forcenew,datatype,dat
 %
 % Last modified by Chunchun GAO  at SDUST, 2023.09.14
 % Last modified by Chunchun GAO  at SDUST, 2023.11.13
+% Email: gaochunchun@sdust.edu.cn
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% CAUTION: THE SOFTWARE AND ITS ALGORITHMS ARE EXCLUSIVELY AVAILABLE FOR INDIVIDUAL 
+% USERS TO ACQUIRE KNOWLEDGE AND EMPLOY IN SCIENTIFIC  RESEARCH. IT IS STRICTLY
+% PROHIBITED FOR ANY USER TO EXPLOIT THE SOFTWARE AND ALGORITHMS FOR COMMERCIAL
+% PURPOSES (INCLUDING, BUT NOT LIMITED TO,  EMPLOYING THE SOFTWARE IN GOVERNMENT
+% PROCUREMENT OR BIDDING PROCESSES). THE SOFTWARE AND ITS ALGORITHMS HAVE BEEN 
+% GRANTED NATIONAL PATENT PROTECTION; HENCE, UNAUTHORIZED UTILIZATION OF THE 
+% SOFTWARE FOR ANY BUSINESS ACTIVITIES,  SUCH AS PRE-INSTALLING IT INTO HARDWARE 
+% PRODUCTS FOR SALE, CONSTITUTES ILLEGAL  INFRINGEMENT. THE DEVELOPER RESERVES 
+% THE RIGHT TO HOLD ACCOUNTABLE THOSE RESPONSIBLE BY LAW.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %-------------------------------------------------------------------------------------------
 % Set the default values of the input variables
 defval('nts',502) 
