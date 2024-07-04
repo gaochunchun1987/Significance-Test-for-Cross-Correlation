@@ -1,4 +1,5 @@
-%% The program requires access to the path "d:/matlab/correlation", so the corresponding file name must be established on disk 'd' before running
+%% The program requires access to the path "D:\matlab\allpapercode\signtestcrosscorr\correlationdata", 
+%% so the corresponding file name must be established on disk 'd' before running
 %% Last modified by Chunchun GAO  at SDUST, 2023.11.15
 clear;
 close all
@@ -13,22 +14,26 @@ alpha=1-confid;
 lagsrange=(N*0.5)*-1:(N*0.5);
 % The significance testing for cross correlation is conducted at the known time shift point
 [rc,edof,signresult,signxrts]=cvttest(XX,YY,lagsrange,'WN',alpha,1,0); % Theoretical method 
+prc=pvalue(XX,YY,rc(250),lagsrange(250),lagsrange(250),'WN');   % Calculating p-value
 [~,rcmc]=montecarloexpcorr(N,confid,100000,1,0,'whitenoise',[],0,[],[]); % Monte Carlo method
 %  The significance testing for cross correlation within a specified range of time shifts
 [rcrg,edofrg,signresultrg,signxrtsrg]=cvttest(XX,YY,lagsrange,'WN',alpha,length(lagsrange),0);
+prcrg=pvalue(XX,YY,rcrg(250),lagsrange(250),lagsrange,'WN');   % Calculating p-value
 [~,~,~,~,rcrgmc]=montecarloexpcorr(N,confid,100000,1,0,'whitenoise',[],0,[],lagsrange); % Monte Carlo method
  
  % Test for red noise
  % Two random red noise signals are generated
-XXred=zscore(rednoise(N,0.8));
+XXred=zscore(rednoise(N,0.8)); 
 YYred=zscore(rednoise(N,0.8));
 % The significance testing for cross correlation is conducted at the known time shift point
 [rcred,edofred,signresultred,signxrtsred]=cvttest(XXred,YYred,lagsrange,'xBH',alpha,1,0); % Theoretical method 
+prcred=pvalue(XXred,YYred,rcred(250),lagsrange(250),lagsrange(250),'xBH');   % Calculating p-value
 [~,rcmcred]=montecarloexpcorr(N,confid,100000,1,0,'inputdata',[XXred,YYred],0,[],[]); % Monte Carlo method
 %  The significance testing for cross correlation within a specified range of time shifts
 deltatau=edofcf(XXred,YYred,lagsrange,'BH',0);
 ni=deltatau*length(lagsrange);  %The number of independent time shift points within the range   Equation(6)
 [rcrgred,edofrgred,signresultrgred,signxrtsrgred]=cvttest(XXred,YYred,lagsrange,'xBH',alpha,ni,0);
+prcrgred=pvalue(XXred,YYred,rcrgred(250),lagsrange(250),lagsrange,'xBH');   % Calculating p-value
 [~,~,~,~,rcrgmcred]=montecarloexpcorr(N,confid,100000,1,0,'inputdata',[XXred,YYred],0,[],lagsrange); % Monte Carlo method
 
 % plotting
