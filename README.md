@@ -1,0 +1,1 @@
+Reference: Gao, C., Chao, B. F., Tan, B., & Wu, X. (2024). Significance testing for cross correlation: A critical examination of correlations between ENSO and GRACE-derived terrestrial water storage variabilities. Global and Planetary Change, 241, 104549. doi: https://doi.org/10.1016/j.gloplacha.2024.104549
